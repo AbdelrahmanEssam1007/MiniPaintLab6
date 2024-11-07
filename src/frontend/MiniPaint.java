@@ -21,7 +21,7 @@ public class MiniPaint extends javax.swing.JFrame {
         setTitle("Vector Drawing Application");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.engine = new DrawingEngineImplementation();
-        canvas.setBackground(Color.black);
+        canvas.setBackground(Color.white);
         canvas.paint(canvas.getGraphics());
         circleButton.addActionListener(e -> addCircle());
     }
@@ -100,7 +100,7 @@ public class MiniPaint extends javax.swing.JFrame {
 
         deleteButton.setText("Delete");
 
-        ShapesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ShapesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         ShapesBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShapesBoxActionPerformed(evt);
