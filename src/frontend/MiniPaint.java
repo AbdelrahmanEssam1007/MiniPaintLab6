@@ -1,6 +1,8 @@
 package frontend;
-import backend.Circle;
-import backend.DrawingEngineImplementation;
+import backend.*;
+import backend.Rectangle;
+import backend.Shape;
+
 import java.awt.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,17 +16,26 @@ public class MiniPaint extends javax.swing.JFrame {
 
     private DrawingEngineImplementation engine;
 
-    public MiniPaint() {
-        this.setVisible(true);
-        this.setLocationRelativeTo(null);
-        initComponents();
-        setTitle("Vector Drawing Application");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.engine = new DrawingEngineImplementation();
-        canvas.setBackground(Color.white);
-        canvas.paint(canvas.getGraphics());
-        circleButton.addActionListener(e -> addCircle());
-    }
+   public MiniPaint() {
+    this.setVisible(true);
+    this.setLocationRelativeTo(null);
+    initComponents();
+    setTitle("Vector Drawing Application");
+    setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+    this.engine = new DrawingEngineImplementation();
+
+    // Set background color for the canvas
+    canvas.setBackground(Color.WHITE);
+
+    // Add action listener for the Circle button
+    circleButton.addActionListener(e -> addCircle());
+    LineSegmentButton.addActionListener(e -> addLineSegment());
+    squareButton.addActionListener(e -> addSquare());
+    rectangleButton.addActionListener(e -> addRectangle());
+    deleteButton.addActionListener(e -> deleteShape());
+    coloriseButton.addActionListener(e -> coloriseShape());
+}
 
     // Method to add circle shape to the engine
     private void addCircle() {
@@ -48,13 +59,123 @@ public class MiniPaint extends javax.swing.JFrame {
             SwingUtilities.invokeLater(() -> {
                 ShapesBox.addItem("Circle " + engine.getShapes().length);
             });
-
-            canvas.repaint();
+            c.draw(canvas.getGraphics());
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
         }
     }
 
+    private void addLineSegment(){
+        try {
+            int x = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the x1 of the line segment"));
+            int y = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the y1 of the line segment"));
+            int x2 = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the x2 of the line segment"));
+            int y2 = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the y2 of the line segment"));
+            Map<String, Double> properties = new HashMap<>();
+            LineSegment l = new LineSegment();
+            l.setColor(Color.BLACK);
+            l.setPosition(new Point(x, y));
+
+            properties.put("x2", (double) x2);
+            properties.put("y2", (double) y2);
+            l.setProperties(properties);
+            engine.addShape(l);
+
+            SwingUtilities.invokeLater(() -> {
+                ShapesBox.addItem("Line Segment " + engine.getShapes().length);
+            });
+            l.draw(canvas.getGraphics());
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
+        }
+    }
+
+    private void addSquare() {
+        try {
+            int side = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the side of the square"));
+            Map<String, Double> properties = new HashMap<>();
+            Square s = new Square();
+            s.setColor(Color.BLACK);
+            s.setFillColor(Color.white);
+
+            String input = javax.swing.JOptionPane.showInputDialog("Enter the x and y position of the square (x,y)");
+            String[] coordinates = input.split(",");
+            int x = Integer.parseInt(coordinates[0].trim());
+            int y = Integer.parseInt(coordinates[1].trim());
+            s.setPosition(new Point(x, y));
+
+            properties.put("side", (double) side);
+            s.setProperties(properties);
+            engine.addShape(s);
+
+            SwingUtilities.invokeLater(() -> {
+                ShapesBox.addItem("Square " + engine.getShapes().length);
+            });
+            s.draw(canvas.getGraphics());
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
+        }
+    }
+
+    private void addRectangle() {
+        try {
+            int width = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the width of the rectangle"));
+            int height = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the height of the rectangle"));
+            Map<String, Double> properties = new HashMap<>();
+            Rectangle r = new Rectangle();
+            r.setColor(Color.BLACK);
+            r.setFillColor(Color.white);
+
+            String input = javax.swing.JOptionPane.showInputDialog("Enter the x and y position of the rectangle (x,y)");
+            String[] coordinates = input.split(",");
+            int x = Integer.parseInt(coordinates[0].trim());
+            int y = Integer.parseInt(coordinates[1].trim());
+            r.setPosition(new Point(x, y));
+
+            properties.put("width", (double) width);
+            properties.put("height", (double) height);
+            r.setProperties(properties);
+            engine.addShape(r);
+
+            SwingUtilities.invokeLater(() -> {
+                ShapesBox.addItem("Rectangle " + engine.getShapes().length);
+            });
+            r.draw(canvas.getGraphics());
+        } catch (NumberFormatException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
+        }
+    }
+
+    private void deleteShape() {
+        try {
+            int index = ShapesBox.getSelectedIndex();
+            engine.removeShape(engine.getShapes()[index]);
+            ShapesBox.removeItemAt(index);
+            canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            for (Shape s : engine.getShapes()) {
+                s.draw(canvas.getGraphics());
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No shape selected");
+        }
+    }
+
+    private void coloriseShape() {
+        try {
+            int index = ShapesBox.getSelectedIndex();
+            Color color = JColorChooser.showDialog(this, "Choose a color", Color.BLACK);
+            engine.getShapes()[index].setColor(color);
+            Color fillcolor = JColorChooser.showDialog(this, "Choose a fill color", Color.BLACK);
+            engine.getShapes()[index].setColor(color);
+            engine.getShapes()[index].setFillColor(fillcolor);
+            canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+            for (Shape s : engine.getShapes()) {
+                s.draw(canvas.getGraphics());
+            }
+        } catch (ArrayIndexOutOfBoundsException e) {
+            javax.swing.JOptionPane.showMessageDialog(this, "No shape selected");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -71,15 +192,8 @@ public class MiniPaint extends javax.swing.JFrame {
         coloriseButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         ShapesBox = new javax.swing.JComboBox<>();
-        canvas = new java.awt.Canvas() {
-            @Override
-            public void paint(Graphics g) {
-                super.paint(g);
-                if (engine != null) {
-                    engine.refresh(g);
-                }
-            }
-        };
+        canvas = new java.awt.Canvas();
+        label1 = new java.awt.Label();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -100,60 +214,64 @@ public class MiniPaint extends javax.swing.JFrame {
 
         deleteButton.setText("Delete");
 
-        ShapesBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {}));
         ShapesBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ShapesBoxActionPerformed(evt);
             }
         });
 
+        label1.setText("Choose Shapes");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(coloriseButton)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(deleteButton))
-                                        .addComponent(ShapesBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(circleButton)
-                                                .addGap(130, 130, 130)
-                                                .addComponent(LineSegmentButton)
-                                                .addGap(130, 130, 130)
-                                                .addComponent(squareButton)
-                                                .addGap(132, 132, 132)
-                                                .addComponent(rectangleButton))
-                                        .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap())
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(coloriseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(ShapesBox, 0, 170, Short.MAX_VALUE)
+                    .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(circleButton)
+                        .addGap(130, 130, 130)
+                        .addComponent(LineSegmentButton)
+                        .addGap(130, 130, 130)
+                        .addComponent(squareButton)
+                        .addGap(132, 132, 132)
+                        .addComponent(rectangleButton))
+                    .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(circleButton)
-                                        .addComponent(LineSegmentButton)
-                                        .addComponent(squareButton)
-                                        .addComponent(rectangleButton))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(ShapesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(coloriseButton)
-                                                        .addComponent(deleteButton))
-                                                .addGap(91, 91, 91))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addContainerGap())))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(circleButton)
+                    .addComponent(LineSegmentButton)
+                    .addComponent(squareButton)
+                    .addComponent(rectangleButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)
+                        .addComponent(ShapesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(coloriseButton)
+                            .addComponent(deleteButton))
+                        .addGap(91, 91, 91))
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
         );
 
         pack();
@@ -206,6 +324,7 @@ public class MiniPaint extends javax.swing.JFrame {
     private javax.swing.JButton circleButton;
     private javax.swing.JButton coloriseButton;
     private javax.swing.JButton deleteButton;
+    private java.awt.Label label1;
     private javax.swing.JButton rectangleButton;
     private javax.swing.JButton squareButton;
     // End of variables declaration//GEN-END:variables
