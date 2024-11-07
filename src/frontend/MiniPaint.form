@@ -23,7 +23,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
@@ -33,20 +33,20 @@
                   </Group>
                   <Component id="ShapesBox" min="-2" pref="170" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" attributes="0">
                       <Component id="circleButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                       <Component id="LineSegmentButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="130" max="-2" attributes="0"/>
                       <Component id="squareButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
                       <Component id="rectangleButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="canvas" min="-2" max="-2" attributes="0"/>
+                  <Component id="canvas" min="-2" pref="765" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -71,10 +71,10 @@
                       </Group>
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="canvas" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="canvas" min="-2" pref="327" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -82,30 +82,6 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="canvas">
-      <Properties>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
-            <LineBorder>
-              <Color PropertyName="color" blue="ff" green="0" red="0" type="rgb"/>
-            </LineBorder>
-          </Border>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="731" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <EmptySpace min="0" pref="307" max="32767" attributes="0"/>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-    </Container>
     <Component class="javax.swing.JButton" name="circleButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Circle"/>
@@ -156,6 +132,8 @@
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
+    </Component>
+    <Component class="java.awt.Canvas" name="canvas">
     </Component>
   </SubComponents>
 </Form>
