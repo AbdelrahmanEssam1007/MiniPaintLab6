@@ -14,6 +14,7 @@ import javax.swing.*;
  */
 public class MiniPaint extends javax.swing.JFrame {
 
+    private Color transparent = new Color(0,0,0,0);
     private DrawingEngineImplementation engine;
 
    public MiniPaint() {
@@ -44,7 +45,7 @@ public class MiniPaint extends javax.swing.JFrame {
             Map<String, Double> properties = new HashMap<>();
             Circle c = new Circle();
             c.setColor(Color.BLACK);
-            c.setFillColor(Color.white);
+            c.setFillColor(transparent);
 
             String input = javax.swing.JOptionPane.showInputDialog("Enter the x and y position of the circle (x,y)");
             String[] coordinates = input.split(",");
@@ -59,7 +60,7 @@ public class MiniPaint extends javax.swing.JFrame {
             SwingUtilities.invokeLater(() -> {
                 ShapesBox.addItem("Circle " + engine.getShapes().length);
             });
-            c.draw(canvas.getGraphics());
+            engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
         }
@@ -84,7 +85,7 @@ public class MiniPaint extends javax.swing.JFrame {
             SwingUtilities.invokeLater(() -> {
                 ShapesBox.addItem("Line Segment " + engine.getShapes().length);
             });
-            l.draw(canvas.getGraphics());
+            engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
         }
@@ -96,7 +97,7 @@ public class MiniPaint extends javax.swing.JFrame {
             Map<String, Double> properties = new HashMap<>();
             Square s = new Square();
             s.setColor(Color.BLACK);
-            s.setFillColor(Color.white);
+            s.setFillColor(transparent);
 
             String input = javax.swing.JOptionPane.showInputDialog("Enter the x and y position of the square (x,y)");
             String[] coordinates = input.split(",");
@@ -111,7 +112,7 @@ public class MiniPaint extends javax.swing.JFrame {
             SwingUtilities.invokeLater(() -> {
                 ShapesBox.addItem("Square " + engine.getShapes().length);
             });
-            s.draw(canvas.getGraphics());
+            engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
         }
@@ -124,7 +125,7 @@ public class MiniPaint extends javax.swing.JFrame {
             Map<String, Double> properties = new HashMap<>();
             Rectangle r = new Rectangle();
             r.setColor(Color.BLACK);
-            r.setFillColor(Color.white);
+            r.setFillColor(transparent);
 
             String input = javax.swing.JOptionPane.showInputDialog("Enter the x and y position of the rectangle (x,y)");
             String[] coordinates = input.split(",");
@@ -140,7 +141,7 @@ public class MiniPaint extends javax.swing.JFrame {
             SwingUtilities.invokeLater(() -> {
                 ShapesBox.addItem("Rectangle " + engine.getShapes().length);
             });
-            r.draw(canvas.getGraphics());
+            engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Invalid input");
         }
@@ -152,9 +153,7 @@ public class MiniPaint extends javax.swing.JFrame {
             engine.removeShape(engine.getShapes()[index]);
             ShapesBox.removeItemAt(index);
             canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-            for (Shape s : engine.getShapes()) {
-                s.draw(canvas.getGraphics());
-            }
+            engine.refresh(canvas.getGraphics());
         } catch (ArrayIndexOutOfBoundsException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "No shape selected");
         }
@@ -166,12 +165,11 @@ public class MiniPaint extends javax.swing.JFrame {
             Color color = JColorChooser.showDialog(this, "Choose a color", Color.BLACK);
             engine.getShapes()[index].setColor(color);
             Color fillcolor = JColorChooser.showDialog(this, "Choose a fill color", Color.BLACK);
+            if (fillcolor == null) color = engine.getShapes()[index].getFillColor();
             engine.getShapes()[index].setColor(color);
             engine.getShapes()[index].setFillColor(fillcolor);
             canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-            for (Shape s : engine.getShapes()) {
-                s.draw(canvas.getGraphics());
-            }
+            engine.refresh(canvas.getGraphics());
         } catch (ArrayIndexOutOfBoundsException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "No shape selected");
         }

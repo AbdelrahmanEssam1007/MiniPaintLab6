@@ -4,29 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/.netbeans_automatic_build" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/.netbeans_update_resources" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/AbsShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/AbsShape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Circle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/DrawingEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/DrawingEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/DrawingEngineImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/DrawingEngineImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/LineSegment.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/LineSegment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Rectangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/DrawingCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/DrawingCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint.form" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/DrawingCanvas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.form" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
-    </list>
+    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -74,7 +52,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731016615442</updated>
-      <workItem from="1731016616327" duration="985000" />
+      <workItem from="1731016616327" duration="1319000" />
     </task>
     <servers />
   </component>
