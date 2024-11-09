@@ -6,13 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/private/private.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/private/private.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/Main.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,7 +73,7 @@
       <workItem from="1731146025681" duration="48000" />
       <workItem from="1731162210498" duration="2620000" />
       <workItem from="1731170941664" duration="723000" />
-      <workItem from="1731172620889" duration="1003000" />
+      <workItem from="1731172620889" duration="3008000" />
     </task>
     <servers />
   </component>

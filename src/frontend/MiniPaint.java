@@ -71,10 +71,10 @@ public class MiniPaint extends javax.swing.JFrame {
 
     private void addLineSegment(){
         try {
-            int x = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the x1 of the line segment"));
-            int y = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the y1 of the line segment"));
-            int x2 = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the x2 of the line segment"));
-            int y2 = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the y2 of the line segment"));
+            int x = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the x1 of the line segment").trim());
+            int y = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the y1 of the line segment").trim());
+            int x2 = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the x2 of the line segment").trim());
+            int y2 = Integer.parseInt(javax.swing.JOptionPane.showInputDialog("Enter the y2 of the line segment").trim());
             Map<String, Double> properties = new HashMap<>();
             LineSegment l = new LineSegment();
             l.setColor(Color.BLACK);
