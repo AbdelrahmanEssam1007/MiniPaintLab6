@@ -14,8 +14,9 @@ import javax.swing.*;
  */
 public class MiniPaint extends javax.swing.JFrame {
 
-    private Color transparent = new Color(0,0,0,0);
+    private final Color transparent = new Color(0,0,0,0);
     private DrawingEngineImplementation engine;
+    private Map<String,Integer> shapeCounter = new HashMap<>();
 
    public MiniPaint() {
     this.setVisible(true);
@@ -57,8 +58,10 @@ public class MiniPaint extends javax.swing.JFrame {
             c.setProperties(properties);
             engine.addShape(c);
 
+            int count = shapeCounter.getOrDefault("Circle", 0) +1;
+            shapeCounter.put("Circle", count);
             SwingUtilities.invokeLater(() -> {
-                ShapesBox.addItem("Circle " + engine.getShapes().length);
+                ShapesBox.addItem("Circle " + count);
             });
             engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
@@ -82,8 +85,11 @@ public class MiniPaint extends javax.swing.JFrame {
             l.setProperties(properties);
             engine.addShape(l);
 
+            int count = shapeCounter.getOrDefault("LineSegment", 0) +1;
+            shapeCounter.put("LineSegment", count);
+
             SwingUtilities.invokeLater(() -> {
-                ShapesBox.addItem("Line Segment " + engine.getShapes().length);
+                ShapesBox.addItem("Line Segment " + count);
             });
             engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
@@ -109,8 +115,11 @@ public class MiniPaint extends javax.swing.JFrame {
             s.setProperties(properties);
             engine.addShape(s);
 
+            int count = shapeCounter.getOrDefault("Square", 0) +1;
+            shapeCounter.put("Square", count);
+
             SwingUtilities.invokeLater(() -> {
-                ShapesBox.addItem("Square " + engine.getShapes().length);
+                ShapesBox.addItem("Square " + count);
             });
             engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
@@ -138,8 +147,11 @@ public class MiniPaint extends javax.swing.JFrame {
             r.setProperties(properties);
             engine.addShape(r);
 
+            int count = shapeCounter.getOrDefault("Rectangle", 0) +1;
+            shapeCounter.put("Rectangle", count);
+
             SwingUtilities.invokeLater(() -> {
-                ShapesBox.addItem("Rectangle " + engine.getShapes().length);
+                ShapesBox.addItem("Rectangle " + count);
             });
             engine.refresh(canvas.getGraphics());
         } catch (NumberFormatException e) {
@@ -165,7 +177,6 @@ public class MiniPaint extends javax.swing.JFrame {
             Color color = JColorChooser.showDialog(this, "Choose a color", Color.BLACK);
             engine.getShapes()[index].setColor(color);
             Color fillcolor = JColorChooser.showDialog(this, "Choose a fill color", Color.BLACK);
-            if (fillcolor == null) color = engine.getShapes()[index].getFillColor();
             engine.getShapes()[index].setColor(color);
             engine.getShapes()[index].setFillColor(fillcolor);
             canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
