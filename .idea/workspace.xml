@@ -6,6 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
     </list>
@@ -44,6 +52,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ryzen 2700/Desktop&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -73,7 +82,8 @@
       <workItem from="1731146025681" duration="48000" />
       <workItem from="1731162210498" duration="2620000" />
       <workItem from="1731170941664" duration="723000" />
-      <workItem from="1731172620889" duration="3008000" />
+      <workItem from="1731172620889" duration="6795000" />
+      <workItem from="1731229603476" duration="399000" />
     </task>
     <servers />
   </component>
