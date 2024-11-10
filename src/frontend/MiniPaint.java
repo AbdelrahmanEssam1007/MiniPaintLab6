@@ -27,6 +27,7 @@ public class MiniPaint extends javax.swing.JFrame {
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     initComponents();
     canvas.setBackground(Color.WHITE);
+    updateShapeBox();
 
     // Action listeners for the buttons
     circleButton.addActionListener(e -> addCircle());
@@ -35,6 +36,14 @@ public class MiniPaint extends javax.swing.JFrame {
     rectangleButton.addActionListener(e -> addRectangle());
     deleteButton.addActionListener(e -> deleteShape());
     coloriseButton.addActionListener(e -> coloriseShape());
+  }
+
+  private void updateShapeBox() {
+    if (ShapesBox.getItemCount() == 0) {
+      ShapesBox.addItem("Choose Shape");
+    } else if (ShapesBox.getItemAt(0).equals("Choose Shape") && ShapesBox.getItemCount() > 1) {
+      ShapesBox.removeItemAt(0);
+    }
   }
 
   // Method to add circle shape to the engine
@@ -60,6 +69,7 @@ public class MiniPaint extends javax.swing.JFrame {
       shapeCounter.put("Circle", count);
       SwingUtilities.invokeLater(() -> {
         ShapesBox.addItem("Circle " + count);
+        updateShapeBox();
       });
       engine.refresh(canvas.getGraphics());
     } catch (NumberFormatException e) {
@@ -88,6 +98,7 @@ public class MiniPaint extends javax.swing.JFrame {
 
       SwingUtilities.invokeLater(() -> {
         ShapesBox.addItem("Line Segment " + count);
+        updateShapeBox();
       });
       engine.refresh(canvas.getGraphics());
     } catch (NumberFormatException e) {
@@ -118,6 +129,7 @@ public class MiniPaint extends javax.swing.JFrame {
 
       SwingUtilities.invokeLater(() -> {
         ShapesBox.addItem("Square " + count);
+        updateShapeBox();
       });
       engine.refresh(canvas.getGraphics());
     } catch (NumberFormatException e) {
@@ -150,6 +162,7 @@ public class MiniPaint extends javax.swing.JFrame {
 
       SwingUtilities.invokeLater(() -> {
         ShapesBox.addItem("Rectangle " + count);
+        updateShapeBox();
       });
       engine.refresh(canvas.getGraphics());
     } catch (NumberFormatException e) {
@@ -164,6 +177,9 @@ public class MiniPaint extends javax.swing.JFrame {
       ShapesBox.removeItemAt(index);
       canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
       engine.refresh(canvas.getGraphics());
+      SwingUtilities.invokeLater(() -> {
+        updateShapeBox();
+      });
     } catch (ArrayIndexOutOfBoundsException e) {
       javax.swing.JOptionPane.showMessageDialog(this, "No shape selected");
     }
