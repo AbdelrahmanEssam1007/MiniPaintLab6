@@ -35,7 +35,7 @@ public class MiniPaint extends JFrame {
     rectangleButton.addActionListener(e -> addRectangle());
     deleteButton.addActionListener(e -> deleteShape());
     coloriseButton.addActionListener(e -> coloriseShape());
-    saveButton.addActionListener(e -> engine.saveToFile());
+    saveButton.addActionListener(e -> write());
     loadButton.addActionListener(e -> read());
     moveButton.addActionListener(e -> move());
     resizeButton.addActionListener(e -> resize());
@@ -116,14 +116,26 @@ public class MiniPaint extends JFrame {
       ShapesBox.removeItemAt(0);
     }
   }
-
-  private void read(){
-    engine.readFromFile();
-    for(Shape s : engine.getShapes()){
-      ShapesBox.addItem(s.getName());
-      updateShapeBox();
+  private void write() {
+    JFileChooser fileChooser = new JFileChooser();
+    int result = fileChooser.showSaveDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+      String path = fileChooser.getSelectedFile().getAbsolutePath();
+      engine.saveToFile(path);
     }
-    engine.refresh(canvas.getGraphics());
+  }
+  private void read() {
+    JFileChooser fileChooser = new JFileChooser();
+    int result = fileChooser.showOpenDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+      String path = fileChooser.getSelectedFile().getAbsolutePath();
+      engine.readFromFile(path);
+      for (Shape s : engine.getShapes()) {
+        ShapesBox.addItem(s.getName());
+        updateShapeBox();
+      }
+      engine.refresh(canvas.getGraphics());
+    }
   }
 
   private void addCircle() {

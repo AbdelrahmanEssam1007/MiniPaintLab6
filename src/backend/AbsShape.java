@@ -74,15 +74,15 @@ public abstract class AbsShape implements Shape {
   @Override
   public String toString () {
     StringBuilder s = new StringBuilder();
-    s.append (this.getName());                  // 0
+    s.append (this.getName());
     s.append (",");
-    s.append (this.getColor().getRGB());        // 1
+    s.append (this.getColor().getRGB());
     s.append (",");
-    s.append (this.getFillColor().getRGB());    // 2
+    s.append (this.getFillColor().getRGB());
     s.append (",");
-    s.append (this.getPosition().getX());       // 3
+    s.append (this.getPosition().getX());
     s.append (",");
-    s.append (this.getPosition().getY());       // 4
+    s.append (this.getPosition().getY());
     s.append (",");
     this.getProperties().forEach((key, value) -> {
       s.append (key);

@@ -58,9 +58,19 @@ public class DrawingEngineImplementation implements DrawingEngine {
     }
   }
 
-  public void saveToFile () {
+  @Override
+  public void readFromFile() {
+
+  }
+
+  @Override
+  public void saveToFile() {
+
+  }
+
+  public void saveToFile (String path) {
     try {
-      FileWriter fileWriter = new FileWriter ("Shapes.txt");
+      FileWriter fileWriter = new FileWriter (path);
       for (Shape shape : shapes) {
         fileWriter.write(shape.toString());
       }
@@ -71,9 +81,9 @@ public class DrawingEngineImplementation implements DrawingEngine {
     }
   }
 
-  public void readFromFile(){
+  public void readFromFile(String path) {
     try {
-      File file = new File ("Shapes.txt");
+      File file = new File (path);
       Scanner sc = new Scanner(file);
       String line;
 

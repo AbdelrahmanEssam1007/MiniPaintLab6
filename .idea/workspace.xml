@@ -4,27 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="">
+    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="Added Save and Load methods and input validations">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/AbsShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/AbsShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/LineSegment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/LineSegment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Rectangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Square.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/AbsShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AbsShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngine.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/LineSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/LineSegment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Shape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Square.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +23,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -63,7 +64,7 @@
   "keyToString": {
     "Application.MiniPaint.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "WithSaveAndLoad",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "G:/my stuff/Work/Programming/Java/MiniPaintLab6/src/frontend",
     "node.js.detected.package.eslint": "true",
@@ -108,8 +109,17 @@
       <workItem from="1732646490035" duration="359000" />
       <workItem from="1732647071822" duration="5457000" />
       <workItem from="1732654864777" duration="95000" />
-      <workItem from="1732655032601" duration="3615000" />
+      <workItem from="1732655032601" duration="4961000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Save and Load methods and input validations">
+      <option name="closed" value="true" />
+      <created>1732658921340</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732658921340</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -120,10 +130,26 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/WithSaveAndLoad" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Save and Load methods and input validations" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Save and Load methods and input validations" />
   </component>
 </project>
