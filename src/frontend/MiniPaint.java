@@ -41,7 +41,7 @@ public class MiniPaint extends JFrame {
     resizeButton.addActionListener(e -> resize());
   }
 
-  public void resize(){
+  private void resize(){
     try {
       int index = ShapesBox.getSelectedIndex();
       String input;
@@ -92,7 +92,7 @@ public class MiniPaint extends JFrame {
     }
   }
 
-  public void move(){
+  private void move(){
     try {
       int index = ShapesBox.getSelectedIndex();
       String input = JOptionPane.showInputDialog("Enter the x and y position of the circle (x,y)");

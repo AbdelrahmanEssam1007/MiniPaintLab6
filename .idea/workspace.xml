@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="Added Save and Load methods and input validations">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/AbsShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/AbsShape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/AbsShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AbsShape.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
-    </list>
+    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="add jfilechoosers for path and file selection" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,7 +97,7 @@
       <workItem from="1732646490035" duration="359000" />
       <workItem from="1732647071822" duration="5457000" />
       <workItem from="1732654864777" duration="95000" />
-      <workItem from="1732655032601" duration="4961000" />
+      <workItem from="1732655032601" duration="5285000" />
     </task>
     <task id="LOCAL-00001" summary="Added Save and Load methods and input validations">
       <option name="closed" value="true" />
@@ -119,7 +107,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732658921340</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add jfilechoosers for path and file selection">
+      <option name="closed" value="true" />
+      <created>1732660206316</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732660206316</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +146,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Save and Load methods and input validations" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Save and Load methods and input validations" />
+    <MESSAGE value="add jfilechoosers for path and file selection" />
+    <option name="LAST_COMMIT_MESSAGE" value="add jfilechoosers for path and file selection" />
   </component>
 </project>
