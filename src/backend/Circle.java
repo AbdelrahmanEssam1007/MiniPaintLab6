@@ -15,4 +15,10 @@ public class Circle extends AbsShape {
     canvas.setColor(getColor());
     canvas.drawOval(getPosition().x, getPosition().y, getProperties().get("radius").intValue()*2, getProperties().get("radius").intValue()*2);
   }
+
+  @Override
+  public String stringRep() {
+   return "Circle," + getProperties().get("radius") + "," + getPosition().x + "," + getPosition().y + "," + getColor().getRGB() + "," + getFillColor().getRGB();
+  }
+
 }

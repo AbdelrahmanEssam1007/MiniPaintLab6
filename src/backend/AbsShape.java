@@ -8,6 +8,7 @@ public abstract class AbsShape implements Shape {
   private Color color;
   private Color fillColor;
   private Map<String, Double> properties;
+  private String name;
 
   public AbsShape() {
     this.position = new Point(0, 0);
@@ -19,6 +20,11 @@ public abstract class AbsShape implements Shape {
   @Override
   public void setPosition(Point position) {
     this.position = position;
+  }
+
+  @Override
+  public void setPosition(double x, double y) {
+    this.position = new Point((int) x, (int) y);
   }
 
   @Override
@@ -54,5 +60,50 @@ public abstract class AbsShape implements Shape {
   @Override
   public Color getFillColor() {
     return fillColor;
+  }
+
+  @Override
+  public void setName(String name) {
+    this.name = name;
+  }
+  @Override
+  public String getName() {
+    return this.name;
+  }
+
+  @Override
+  public String toString () {
+    StringBuilder s = new StringBuilder();
+    s.append (this.getName());                  // 0
+    s.append (",");
+    s.append (this.getColor().getRGB());        // 1
+    s.append (",");
+    s.append (this.getFillColor().getRGB());    // 2
+    s.append (",");
+    s.append (this.getPosition().getX());       // 3
+    s.append (",");
+    s.append (this.getPosition().getY());       // 4
+    s.append (",");
+    this.getProperties().forEach((key, value) -> {
+      s.append (key);
+      s.append (":");
+      s.append (value);
+      s.append (",");
+    });
+    s.append("\n");
+    return s.toString();
+  }
+
+  @Override
+  public void setShape(String s) {
+    String [] shapeDetails = s.split(",", 0);
+    this.setName(shapeDetails[0]);
+    this.setColor(new Color(Integer.parseInt(shapeDetails[1])));
+    this.setFillColor(new Color(Integer.parseInt(shapeDetails[2])));
+    this.setPosition(Double.parseDouble(shapeDetails[3]), Double.parseDouble(shapeDetails[4]));
+    for (int i = 5; i < shapeDetails.length; i ++) {
+      String [] property = shapeDetails[i].split(":", 0);
+      this.getProperties().put(property [0], Double.parseDouble(property [1]));
+    }
   }
 }

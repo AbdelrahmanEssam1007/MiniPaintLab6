@@ -6,6 +6,26 @@
   <component name="ChangeListManager">
     <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Circle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/LineSegment.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/LineSegment.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Rectangle.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Shape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/Square.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/AbsShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AbsShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/LineSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/LineSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Square.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +47,9 @@
     &quot;accountId&quot;: &quot;1a49c77a-a421-46f1-a4fc-7f7992311406&quot;
   }
 }</component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -36,22 +59,27 @@
     <option name="showLibraryContents" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.MiniPaint.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Ryzen 2700/Desktop&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.MiniPaint.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "G:/my stuff/Work/Programming/Java/MiniPaintLab6/src/frontend",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\my stuff\Work\Programming\Java\MiniPaintLab6\src\frontend" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -77,10 +105,25 @@
       <workItem from="1731229603476" duration="1193000" />
       <workItem from="1731230942833" duration="66000" />
       <workItem from="1731236157816" duration="3361000" />
+      <workItem from="1732646490035" duration="359000" />
+      <workItem from="1732647071822" duration="5457000" />
+      <workItem from="1732654864777" duration="95000" />
+      <workItem from="1732655032601" duration="3615000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

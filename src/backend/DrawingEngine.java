@@ -10,4 +10,6 @@ public interface DrawingEngine {
   public Shape[] getShapes();
   // redraw all shapes on the canvas
   public void refresh(Graphics canvas);
+  public void readFromFile ();
+  public void saveToFile ();
 }

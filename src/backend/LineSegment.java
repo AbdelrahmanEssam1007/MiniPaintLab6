@@ -14,4 +14,9 @@ public class LineSegment extends AbsShape {
     canvas.setColor(getColor());
     canvas.drawLine(getPosition().x, getPosition().y, getProperties().get("x2").intValue(), getProperties().get("y2").intValue());
   }
+
+  @Override
+  public String stringRep() {
+    return "LineSegment," + getProperties().get("x2") + "," + getProperties().get("y2") + "," + getPosition().x + "," + getPosition().y + "," + getColor().getRGB();
+  }
 }
