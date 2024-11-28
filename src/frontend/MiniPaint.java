@@ -89,8 +89,12 @@ public class MiniPaint extends JFrame {
         }
         case "LineSegment":
         {
-          JOptionPane.showMessageDialog(this, "Line segments cannot be resized");
-          return;
+          input = JOptionPane.showInputDialog("Enter the new x2 and y2 position of the line segment");
+          String[] coordinates = input.split(",");
+          double x2 = Double.parseDouble(coordinates[0].trim());
+          double y2 = Double.parseDouble(coordinates[1].trim());
+          selectedShape.setProperties(Map.of("x2", x2, "y2", y2));
+          break;
         }
       }
       canvas.repaint();
@@ -105,12 +109,12 @@ public class MiniPaint extends JFrame {
       int index = ShapesBox.getSelectedIndex();
       Shape selectedShape = engine.getShapes()[index];
       if (selectedShape.getClass().getSimpleName().equals("LineSegment")) {
-        String Linepos1 = JOptionPane.showInputDialog("Enter the x1 and y1 position of the line segment (x1,y1)");
-        String Linepos2 = JOptionPane.showInputDialog("Enter the x2 and y2 position of the line segment (x2,y2)");
-        String[] coordinates1 = Linepos1.split(",");
-        String[] coordinates2 = Linepos2.split(",");
-        selectedShape.setPosition(Integer.parseInt(coordinates1[0].trim()), Integer.parseInt(coordinates1[1].trim()));
-        selectedShape.setProperties(Map.of("x2", Double.parseDouble(coordinates2[0].trim()), "y2", Double.parseDouble(coordinates2[1].trim())));
+        String shiftInput = JOptionPane.showInputDialog("Enter the shift values for x and y (dx,dy)");
+        String[] shiftValues = shiftInput.split(",");
+        int dx = Integer.parseInt(shiftValues[0].trim());
+        int dy = Integer.parseInt(shiftValues[1].trim());
+        selectedShape.setPosition(selectedShape.getPosition().x + dx,selectedShape.getPosition().y + dy);
+        selectedShape.setProperties(Map.of("x2", selectedShape.getProperties().get("x2") + dx, "y2", selectedShape.getProperties().get("y2") + dy));
         canvas.repaint();
         return;
       }
