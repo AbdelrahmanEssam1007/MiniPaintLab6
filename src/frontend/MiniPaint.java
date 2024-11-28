@@ -15,13 +15,12 @@ import javax.swing.*;
 public class MiniPaint extends JFrame {
 
   private final Color transparent = Color.white;
-  private DrawingEngineImplementation engine;
+  private final DrawingEngineImplementation engine= new DrawingEngineImplementation();;
 
   public MiniPaint() {
     //initialisation and frame settings
     this.setVisible(true);
     this.setLocationRelativeTo(null);
-    this.engine = new DrawingEngineImplementation();
     setTitle("Vector Drawing Application");
     setDefaultCloseOperation(EXIT_ON_CLOSE);
     initComponents();
@@ -39,6 +38,7 @@ public class MiniPaint extends JFrame {
     loadButton.addActionListener(e -> read());
     moveButton.addActionListener(e -> move());
     resizeButton.addActionListener(e -> resize());
+    canvas.repaint();
   }
 
   private void resize(){
@@ -85,7 +85,7 @@ public class MiniPaint extends JFrame {
           JOptionPane.showMessageDialog(this, "Line segments cannot be resized");
           return;
       }
-      canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+      canvas.repaint();
       engine.refresh(canvas.getGraphics());
     } catch (ArrayIndexOutOfBoundsException e) {
       JOptionPane.showMessageDialog(this, "No shape selected");
@@ -95,14 +95,25 @@ public class MiniPaint extends JFrame {
   private void move(){
     try {
       int index = ShapesBox.getSelectedIndex();
-      String input = JOptionPane.showInputDialog("Enter the x and y position of the circle (x,y)");
+      Shape selectedShape = engine.getShapes()[index];
+      if (selectedShape.getClass().getSimpleName().equals("LineSegment")) {
+        String Linepos1 = JOptionPane.showInputDialog("Enter the x1 and y1 position of the line segment (x1,y1)");
+        String Linepos2 = JOptionPane.showInputDialog("Enter the x2 and y2 position of the line segment (x2,y2)");
+        String[] coordinates1 = Linepos1.split(",");
+        String[] coordinates2 = Linepos2.split(",");
+        selectedShape.setPosition(Integer.parseInt(coordinates1[0].trim()), Integer.parseInt(coordinates1[1].trim()));
+        selectedShape.setProperties(Map.of("x2", Double.parseDouble(coordinates2[0].trim()), "y2", Double.parseDouble(coordinates2[1].trim()) ));
+        canvas.repaint();
+        return;
+      }
+      String input = JOptionPane.showInputDialog("Enter the x and y position of the shape (x,y)");
       String[] coordinates = input.split(",");
       int x = Integer.parseInt(coordinates[0].trim());
       int y = Integer.parseInt(coordinates[1].trim());
-      Shape selectedShape = engine.getShapes()[index];
       selectedShape.setPosition(x, y);
-      canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+      canvas.repaint();
       engine.refresh(canvas.getGraphics());
+
     } catch (ArrayIndexOutOfBoundsException e) {
       JOptionPane.showMessageDialog(this, "No shape selected");
     }
@@ -271,7 +282,7 @@ public class MiniPaint extends JFrame {
       int index = ShapesBox.getSelectedIndex();
       engine.removeShape(engine.getShapes()[index]);
       ShapesBox.removeItemAt(index);
-      canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+      canvas.repaint();
       engine.refresh(canvas.getGraphics());
       SwingUtilities.invokeLater(() -> {
         updateShapeBox();
@@ -292,7 +303,7 @@ public class MiniPaint extends JFrame {
       if (fillcolor != null) {
         engine.getShapes()[index].setFillColor(fillcolor);
       }
-      canvas.getGraphics().clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+      canvas.repaint();
       engine.refresh(canvas.getGraphics());
     } catch (ArrayIndexOutOfBoundsException e) {
       JOptionPane.showMessageDialog(this, "No shape selected");
@@ -314,12 +325,12 @@ public class MiniPaint extends JFrame {
         coloriseButton = new javax.swing.JButton();
         deleteButton = new javax.swing.JButton();
         ShapesBox = new javax.swing.JComboBox<>();
-        canvas = new java.awt.Canvas();
         label1 = new java.awt.Label();
         resizeButton = new javax.swing.JButton();
         moveButton = new javax.swing.JButton();
         saveButton = new javax.swing.JButton();
         loadButton = new javax.swing.JButton();
+        canvas = new DrawingCanvas(engine);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -356,6 +367,19 @@ public class MiniPaint extends JFrame {
 
         loadButton.setText("Load");
 
+        canvas.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout canvasLayout = new javax.swing.GroupLayout(canvas);
+        canvas.setLayout(canvasLayout);
+        canvasLayout.setHorizontalGroup(
+            canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        canvasLayout.setVerticalGroup(
+            canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 335, Short.MAX_VALUE)
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -377,8 +401,8 @@ public class MiniPaint extends JFrame {
                         .addComponent(saveButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(loadButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(circleButton)
                         .addGap(130, 130, 130)
@@ -387,7 +411,7 @@ public class MiniPaint extends JFrame {
                         .addComponent(squareButton)
                         .addGap(132, 132, 132)
                         .addComponent(rectangleButton))
-                    .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 765, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(canvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -400,7 +424,7 @@ public class MiniPaint extends JFrame {
                     .addComponent(squareButton)
                     .addComponent(rectangleButton))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(67, 67, 67)
@@ -468,7 +492,7 @@ public class MiniPaint extends JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LineSegmentButton;
     private javax.swing.JComboBox<String> ShapesBox;
-    private java.awt.Canvas canvas;
+    private DrawingCanvas canvas;
     private javax.swing.JButton circleButton;
     private javax.swing.JButton coloriseButton;
     private javax.swing.JButton deleteButton;
