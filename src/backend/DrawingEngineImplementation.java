@@ -9,36 +9,13 @@ import java.util.Scanner;
 public class DrawingEngineImplementation implements DrawingEngine {
 
   private final List <Shape> shapes;
-  private static int numOfCircles = 0;
-  private static int numOfRectangles = 0;
-  private static int numOfSquares = 0;
-  private static int numOfLineSegments = 0;
+  private static int CircleNum = 0;
+  private static int RectNum = 0;
+  private static int SquareNum = 0;
+  private static int LineSegNum = 0;
 
   public DrawingEngineImplementation() {
     this.shapes = new ArrayList<>();
-  }
-
-  @Override
-  public void addShape (Shape shape) {
-//        if (shape.getName() == null) {
-    if (shape instanceof Circle) {
-      DrawingEngineImplementation.numOfCircles ++;
-      shape.setName("Circle " + DrawingEngineImplementation.numOfCircles);
-    }
-    else if (shape instanceof Rectangle) {
-      DrawingEngineImplementation.numOfRectangles ++;
-      shape.setName("Rectangle " + DrawingEngineImplementation.numOfRectangles);
-    }
-    else if (shape instanceof Square) {
-      DrawingEngineImplementation.numOfSquares ++;
-      shape.setName("Square " + DrawingEngineImplementation.numOfSquares);
-    }
-    else {
-      DrawingEngineImplementation.numOfLineSegments ++;
-      shape.setName("Line " + DrawingEngineImplementation.numOfLineSegments);
-    }
-//        }
-    this.shapes.add(shape);
   }
 
   @Override
@@ -57,13 +34,34 @@ public class DrawingEngineImplementation implements DrawingEngine {
       shape.draw(canvas);
     }
   }
+  @Override
+  public void addShape (Shape shape) {
+    if (shape instanceof Circle) {
+      DrawingEngineImplementation.CircleNum++;
+      shape.setName("Circle " + DrawingEngineImplementation.CircleNum);
+    }
+    else if (shape instanceof Rectangle) {
+      DrawingEngineImplementation.RectNum++;
+      shape.setName("Rectangle " + DrawingEngineImplementation.RectNum);
+    }
+    else if (shape instanceof Square) {
+      DrawingEngineImplementation.SquareNum++;
+
+      shape.setName("Square " + DrawingEngineImplementation.SquareNum);
+    }
+    else {
+      DrawingEngineImplementation.LineSegNum++;
+      shape.setName("Line " + DrawingEngineImplementation.LineSegNum);
+    }
+    this.shapes.add(shape);
+  }
 
   public void reset() {
     shapes.clear();
-    numOfCircles = 0;
-    numOfRectangles = 0;
-    numOfSquares = 0;
-    numOfLineSegments = 0;
+    CircleNum = 0;
+    RectNum = 0;
+    SquareNum = 0;
+    LineSegNum = 0;
   }
 
   public void saveToFile (String path) {

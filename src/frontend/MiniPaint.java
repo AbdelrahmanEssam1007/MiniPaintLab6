@@ -14,7 +14,7 @@ import javax.swing.*;
  */
 public class MiniPaint extends JFrame {
 
-  private final Color transparent = Color.white;
+  private final Color transparent = new Color(0, 0, 0, 0);
   private final DrawingEngineImplementation engine = new DrawingEngineImplementation();
 
   public MiniPaint() {

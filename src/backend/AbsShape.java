@@ -80,6 +80,8 @@ public abstract class AbsShape implements Shape {
     s.append (",");
     s.append (this.getFillColor().getRGB());
     s.append (",");
+    s.append(this.getFillColor().getAlpha());
+    s.append(",");
     s.append (this.getPosition().getX());
     s.append (",");
     s.append (this.getPosition().getY());
@@ -99,9 +101,12 @@ public abstract class AbsShape implements Shape {
     String [] shapeDetails = s.split(",", 0);
     this.setName(shapeDetails[0]);
     this.setColor(new Color(Integer.parseInt(shapeDetails[1])));
-    this.setFillColor(new Color(Integer.parseInt(shapeDetails[2])));
-    this.setPosition(Double.parseDouble(shapeDetails[3]), Double.parseDouble(shapeDetails[4]));
-    for (int i = 5; i < shapeDetails.length; i ++) {
+    this.setFillColor(new Color((Integer.parseInt(shapeDetails[2]))>>16 & 0xFF,
+                            (Integer.parseInt(shapeDetails[2]))>>8 & 0xFF,
+                            (Integer.parseInt(shapeDetails[2])) & 0xFF,
+                            (Integer.parseInt(shapeDetails[3]))));
+    this.setPosition(Double.parseDouble(shapeDetails[4]), Double.parseDouble(shapeDetails[5]));
+    for (int i = 6; i < shapeDetails.length; i ++) {
       String [] property = shapeDetails[i].split(":", 0);
       this.getProperties().put(property [0], Double.parseDouble(property [1]));
     }

@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="added missing files">
+    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="added gitignore">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/AbsShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AbsShape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
     </list>
@@ -116,7 +115,8 @@
       <workItem from="1732655032601" duration="5664000" />
       <workItem from="1732781663614" duration="2129000" />
       <workItem from="1732788110162" duration="257000" />
-      <workItem from="1732788382758" duration="1085000" />
+      <workItem from="1732788382758" duration="2208000" />
+      <workItem from="1732794591545" duration="2840000" />
     </task>
     <task id="LOCAL-00001" summary="Added Save and Load methods and input validations">
       <option name="closed" value="true" />
@@ -150,7 +150,31 @@
       <option name="project" value="LOCAL" />
       <updated>1732788314488</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="change line behaviour and fixed some bugs with loading files">
+      <option name="closed" value="true" />
+      <created>1732789559357</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732789559358</updated>
+    </task>
+    <task id="LOCAL-00006" summary="adjusted helper function behaviour">
+      <option name="closed" value="true" />
+      <created>1732789795159</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732789795159</updated>
+    </task>
+    <task id="LOCAL-00007" summary="added gitignore">
+      <option name="closed" value="true" />
+      <created>1732789817233</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1732789817233</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +208,9 @@
     <MESSAGE value="add jfilechoosers for path and file selection" />
     <MESSAGE value="adjusted encapsulation of some functions" />
     <MESSAGE value="added missing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="added missing files" />
+    <MESSAGE value="change line behaviour and fixed some bugs with loading files" />
+    <MESSAGE value="adjusted helper function behaviour" />
+    <MESSAGE value="added gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
   </component>
 </project>
