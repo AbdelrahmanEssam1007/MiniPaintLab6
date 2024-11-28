@@ -149,7 +149,7 @@ public class MiniPaint extends JFrame {
     JFileChooser fileChooser = new JFileChooser();
     int result = fileChooser.showOpenDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
-      engine.clear();
+      engine.reset();
       ShapesBox.removeAllItems();
       canvas.repaint();
       String path = fileChooser.getSelectedFile().getAbsolutePath();

@@ -58,7 +58,7 @@ public class DrawingEngineImplementation implements DrawingEngine {
     }
   }
 
-  public void clear() {
+  public void reset() {
     shapes.clear();
     numOfCircles = 0;
     numOfRectangles = 0;
