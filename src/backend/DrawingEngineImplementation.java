@@ -58,14 +58,12 @@ public class DrawingEngineImplementation implements DrawingEngine {
     }
   }
 
-  @Override
-  public void readFromFile() {
-
-  }
-
-  @Override
-  public void saveToFile() {
-
+  public void clear() {
+    shapes.clear();
+    numOfCircles = 0;
+    numOfRectangles = 0;
+    numOfSquares = 0;
+    numOfLineSegments = 0;
   }
 
   public void saveToFile (String path) {

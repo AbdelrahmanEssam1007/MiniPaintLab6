@@ -1,4 +1,5 @@
 package frontend;
+
 import backend.*;
 import backend.Rectangle;
 import backend.Shape;
@@ -9,13 +10,12 @@ import java.util.Map;
 import javax.swing.*;
 
 /**
- *
  * @author Abdelrahman Essam
  */
 public class MiniPaint extends JFrame {
 
   private final Color transparent = Color.white;
-  private final DrawingEngineImplementation engine= new DrawingEngineImplementation();
+  private final DrawingEngineImplementation engine = new DrawingEngineImplementation();
 
   public MiniPaint() {
     //initialisation and frame settings
@@ -41,7 +41,7 @@ public class MiniPaint extends JFrame {
     canvas.repaint();
   }
 
-  private void resize(){
+  private void resize() {
     try {
       int index = ShapesBox.getSelectedIndex();
       String input;
@@ -49,6 +49,7 @@ public class MiniPaint extends JFrame {
       Shape selectedShape = engine.getShapes()[index];
       switch (selectedShape.getClass().getSimpleName()) {
         case "Circle":
+        {
           input = JOptionPane.showInputDialog("Enter the new radius of the circle");
           size = Double.parseDouble(input);
           if (size <= 0) {
@@ -57,7 +58,9 @@ public class MiniPaint extends JFrame {
           }
           selectedShape.setProperties(Map.of("radius", size));
           break;
+        }
         case "Square":
+        {
           input = JOptionPane.showInputDialog("Enter the new side of the square");
           size = Double.parseDouble(input);
           if (size <= 0) {
@@ -66,7 +69,9 @@ public class MiniPaint extends JFrame {
           }
           selectedShape.setProperties(Map.of("side", size));
           break;
+        }
         case "Rectangle":
+        {
           input = JOptionPane.showInputDialog("Enter the new width of the rectangle");
           size = Double.parseDouble(input);
           if (size <= 0) {
@@ -81,9 +86,12 @@ public class MiniPaint extends JFrame {
           }
           selectedShape.setProperties(Map.of("width", size, "height", size2));
           break;
+        }
         case "LineSegment":
+        {
           JOptionPane.showMessageDialog(this, "Line segments cannot be resized");
           return;
+        }
       }
       canvas.repaint();
       engine.refresh(canvas.getGraphics());
@@ -92,7 +100,7 @@ public class MiniPaint extends JFrame {
     }
   }
 
-  private void move(){
+  private void move() {
     try {
       int index = ShapesBox.getSelectedIndex();
       Shape selectedShape = engine.getShapes()[index];
@@ -102,7 +110,7 @@ public class MiniPaint extends JFrame {
         String[] coordinates1 = Linepos1.split(",");
         String[] coordinates2 = Linepos2.split(",");
         selectedShape.setPosition(Integer.parseInt(coordinates1[0].trim()), Integer.parseInt(coordinates1[1].trim()));
-        selectedShape.setProperties(Map.of("x2", Double.parseDouble(coordinates2[0].trim()), "y2", Double.parseDouble(coordinates2[1].trim()) ));
+        selectedShape.setProperties(Map.of("x2", Double.parseDouble(coordinates2[0].trim()), "y2", Double.parseDouble(coordinates2[1].trim())));
         canvas.repaint();
         return;
       }
@@ -127,6 +135,7 @@ public class MiniPaint extends JFrame {
       ShapesBox.removeItemAt(0);
     }
   }
+
   private void write() {
     JFileChooser fileChooser = new JFileChooser();
     int result = fileChooser.showSaveDialog(this);
@@ -135,16 +144,20 @@ public class MiniPaint extends JFrame {
       engine.saveToFile(path);
     }
   }
+
   private void read() {
     JFileChooser fileChooser = new JFileChooser();
     int result = fileChooser.showOpenDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
+      engine.clear();
+      ShapesBox.removeAllItems();
+      canvas.repaint();
       String path = fileChooser.getSelectedFile().getAbsolutePath();
       engine.readFromFile(path);
       for (Shape s : engine.getShapes()) {
         ShapesBox.addItem(s.getName());
-        updateShapeBox();
       }
+      updateShapeBox();
       engine.refresh(canvas.getGraphics());
     }
   }
@@ -182,20 +195,16 @@ public class MiniPaint extends JFrame {
     }
   }
 
-  private void addLineSegment(){
+  private void addLineSegment() {
     try {
-      int x = Integer.parseInt(JOptionPane.showInputDialog("Enter the x1 of the line segment").trim());
-      int y = Integer.parseInt(JOptionPane.showInputDialog("Enter the y1 of the line segment").trim());
-      int x2 = Integer.parseInt(JOptionPane.showInputDialog("Enter the x2 of the line segment").trim());
-      int y2 = Integer.parseInt(JOptionPane.showInputDialog("Enter the y2 of the line segment").trim());
-      Map<String, Double> properties = new HashMap<>();
+      String Linepos1 = JOptionPane.showInputDialog("Enter the x1 and y1 position of the line segment (x1,y1)");
+      String Linepos2 = JOptionPane.showInputDialog("Enter the x2 and y2 position of the line segment (x2,y2)");
+      String[] coordinates1 = Linepos1.split(",");
+      String[] coordinates2 = Linepos2.split(",");
       LineSegment l = new LineSegment();
       l.setColor(Color.BLACK);
-      l.setPosition(new Point(x, y));
-
-      properties.put("x2", (double) x2);
-      properties.put("y2", (double) y2);
-      l.setProperties(properties);
+      l.setPosition(Integer.parseInt(coordinates1[0].trim()), Integer.parseInt(coordinates1[1].trim()));
+      l.setProperties(Map.of("x2", Double.parseDouble(coordinates2[0].trim()), "y2", Double.parseDouble(coordinates2[1].trim())));
       engine.addShape(l);
 
       SwingUtilities.invokeLater(() -> {
@@ -309,145 +318,79 @@ public class MiniPaint extends JFrame {
       JOptionPane.showMessageDialog(this, "No shape selected");
     }
   }
+
   /**
    * This method is called from within the constructor to initialize the form.
    * WARNING: Do NOT modify this code. The content of this method is always
    * regenerated by the Form Editor.
    */
   @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+  private void initComponents() {
 
-        circleButton = new javax.swing.JButton();
-        LineSegmentButton = new javax.swing.JButton();
-        squareButton = new javax.swing.JButton();
-        rectangleButton = new javax.swing.JButton();
-        coloriseButton = new javax.swing.JButton();
-        deleteButton = new javax.swing.JButton();
-        ShapesBox = new javax.swing.JComboBox<>();
-        label1 = new java.awt.Label();
-        resizeButton = new javax.swing.JButton();
-        moveButton = new javax.swing.JButton();
-        saveButton = new javax.swing.JButton();
-        loadButton = new javax.swing.JButton();
-        canvas = new DrawingCanvas(engine);
+    circleButton = new javax.swing.JButton();
+    LineSegmentButton = new javax.swing.JButton();
+    squareButton = new javax.swing.JButton();
+    rectangleButton = new javax.swing.JButton();
+    coloriseButton = new javax.swing.JButton();
+    deleteButton = new javax.swing.JButton();
+    ShapesBox = new javax.swing.JComboBox<>();
+    label1 = new java.awt.Label();
+    resizeButton = new javax.swing.JButton();
+    moveButton = new javax.swing.JButton();
+    saveButton = new javax.swing.JButton();
+    loadButton = new javax.swing.JButton();
+    canvas = new DrawingCanvas(engine);
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        circleButton.setText("Circle");
-        circleButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                circleButtonActionPerformed(evt);
-            }
-        });
+    circleButton.setText("Circle");
+    circleButton.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        circleButtonActionPerformed(evt);
+      }
+    });
 
-        LineSegmentButton.setText("LineSegment");
+    LineSegmentButton.setText("LineSegment");
 
-        squareButton.setText("Square");
+    squareButton.setText("Square");
 
-        rectangleButton.setText("Rectangle");
+    rectangleButton.setText("Rectangle");
 
-        coloriseButton.setText("Colorise");
+    coloriseButton.setText("Colorise");
 
-        deleteButton.setText("Delete");
+    deleteButton.setText("Delete");
 
-        ShapesBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ShapesBoxActionPerformed(evt);
-            }
-        });
+    ShapesBox.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        ShapesBoxActionPerformed(evt);
+      }
+    });
 
-        label1.setText("Choose Shapes");
+    label1.setText("Choose Shapes");
 
-        resizeButton.setText("Resize");
+    resizeButton.setText("Resize");
 
-        moveButton.setText("Move");
+    moveButton.setText("Move");
 
-        saveButton.setText("Save");
+    saveButton.setText("Save");
 
-        loadButton.setText("Load");
+    loadButton.setText("Load");
 
-        canvas.setBackground(new java.awt.Color(255, 255, 255));
+    canvas.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout canvasLayout = new javax.swing.GroupLayout(canvas);
-        canvas.setLayout(canvasLayout);
-        canvasLayout.setHorizontalGroup(
-            canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        canvasLayout.setVerticalGroup(
-            canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 335, Short.MAX_VALUE)
-        );
+    javax.swing.GroupLayout canvasLayout = new javax.swing.GroupLayout(canvas);
+    canvas.setLayout(canvasLayout);
+    canvasLayout.setHorizontalGroup(canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 0, Short.MAX_VALUE));
+    canvasLayout.setVerticalGroup(canvasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGap(0, 335, Short.MAX_VALUE));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(coloriseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(ShapesBox, 0, 170, Short.MAX_VALUE)
-                    .addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(resizeButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(moveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(saveButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(loadButton)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(circleButton)
-                        .addGap(130, 130, 130)
-                        .addComponent(LineSegmentButton)
-                        .addGap(130, 130, 130)
-                        .addComponent(squareButton)
-                        .addGap(132, 132, 132)
-                        .addComponent(rectangleButton))
-                    .addComponent(canvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(circleButton)
-                    .addComponent(LineSegmentButton)
-                    .addComponent(squareButton)
-                    .addComponent(rectangleButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(67, 67, 67)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(saveButton)
-                    .addComponent(loadButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(2, 2, 2)
-                .addComponent(ShapesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(coloriseButton)
-                    .addComponent(deleteButton))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(resizeButton)
-                    .addComponent(moveButton))
-                .addGap(58, 58, 58))
-        );
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout.createSequentialGroup().addGap(21, 21, 21).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addGroup(layout.createSequentialGroup().addComponent(coloriseButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addComponent(ShapesBox, 0, 170, Short.MAX_VALUE).addComponent(label1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(layout.createSequentialGroup().addComponent(resizeButton).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED).addComponent(moveButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addGroup(layout.createSequentialGroup().addComponent(saveButton).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(loadButton))).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false).addGroup(layout.createSequentialGroup().addComponent(circleButton).addGap(130, 130, 130).addComponent(LineSegmentButton).addGap(130, 130, 130).addComponent(squareButton).addGap(132, 132, 132).addComponent(rectangleButton)).addComponent(canvas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)).addContainerGap()));
+    layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(circleButton).addComponent(LineSegmentButton).addComponent(squareButton).addComponent(rectangleButton)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addComponent(canvas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addContainerGap()).addGroup(layout.createSequentialGroup().addGap(67, 67, 67).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(saveButton).addComponent(loadButton)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE).addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addGap(2, 2, 2).addComponent(ShapesBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(coloriseButton).addComponent(deleteButton)).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED).addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE).addComponent(resizeButton).addComponent(moveButton)).addGap(58, 58, 58)));
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+    pack();
+  }// </editor-fold>//GEN-END:initComponents
 
   private void circleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_circleButtonActionPerformed
     // TODO add your handling code here:
@@ -489,19 +432,19 @@ public class MiniPaint extends JFrame {
     });
   }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton LineSegmentButton;
-    private javax.swing.JComboBox<String> ShapesBox;
-    private DrawingCanvas canvas;
-    private javax.swing.JButton circleButton;
-    private javax.swing.JButton coloriseButton;
-    private javax.swing.JButton deleteButton;
-    private java.awt.Label label1;
-    private javax.swing.JButton loadButton;
-    private javax.swing.JButton moveButton;
-    private javax.swing.JButton rectangleButton;
-    private javax.swing.JButton resizeButton;
-    private javax.swing.JButton saveButton;
-    private javax.swing.JButton squareButton;
-    // End of variables declaration//GEN-END:variables
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton LineSegmentButton;
+  private javax.swing.JComboBox<String> ShapesBox;
+  private DrawingCanvas canvas;
+  private javax.swing.JButton circleButton;
+  private javax.swing.JButton coloriseButton;
+  private javax.swing.JButton deleteButton;
+  private java.awt.Label label1;
+  private javax.swing.JButton loadButton;
+  private javax.swing.JButton moveButton;
+  private javax.swing.JButton rectangleButton;
+  private javax.swing.JButton resizeButton;
+  private javax.swing.JButton saveButton;
+  private javax.swing.JButton squareButton;
+  // End of variables declaration//GEN-END:variables
 }

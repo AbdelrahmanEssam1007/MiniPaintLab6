@@ -4,25 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="adjusted encapsulation of some functions">
+    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="added missing files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/built-jar.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/built-jar.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/AbsShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/AbsShape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Circle.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Circle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/DrawingEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/DrawingEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/DrawingEngineImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/DrawingEngineImplementation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/LineSegment.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/LineSegment.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Rectangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Rectangle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Shape.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Shape.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/backend/Square.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/backend/Square.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/DrawingCanvas.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/DrawingCanvas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/frontend/MiniPaint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -126,6 +115,8 @@
       <workItem from="1732654864777" duration="95000" />
       <workItem from="1732655032601" duration="5664000" />
       <workItem from="1732781663614" duration="2129000" />
+      <workItem from="1732788110162" duration="257000" />
+      <workItem from="1732788382758" duration="1085000" />
     </task>
     <task id="LOCAL-00001" summary="Added Save and Load methods and input validations">
       <option name="closed" value="true" />
@@ -151,7 +142,15 @@
       <option name="project" value="LOCAL" />
       <updated>1732660676958</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added missing files">
+      <option name="closed" value="true" />
+      <created>1732788314488</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732788314488</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,6 +183,7 @@
     <MESSAGE value="Added Save and Load methods and input validations" />
     <MESSAGE value="add jfilechoosers for path and file selection" />
     <MESSAGE value="adjusted encapsulation of some functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="adjusted encapsulation of some functions" />
+    <MESSAGE value="added missing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="added missing files" />
   </component>
 </project>
