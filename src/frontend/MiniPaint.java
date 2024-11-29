@@ -14,8 +14,8 @@ import javax.swing.*;
  */
 public class MiniPaint extends JFrame {
 
-  private final Color transparent = new Color(0, 0, 0, 0);
   private final DrawingEngineImplementation engine = new DrawingEngineImplementation();
+  JFileChooser fileChooser = new JFileChooser();
 
   public MiniPaint() {
     //initialisation and frame settings
@@ -27,6 +27,17 @@ public class MiniPaint extends JFrame {
     canvas.setBackground(Color.WHITE);
     updateShapeBox();
 
+    fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+      @Override
+      public boolean accept(java.io.File f) {
+        return f.getName().toLowerCase().endsWith(".txt") || f.isDirectory();
+      }
+
+      @Override
+      public String getDescription() {
+        return "Text files (*.txt)";
+      }
+    });
     // Action listeners for the buttons
     circleButton.addActionListener(e -> addCircle());
     LineSegmentButton.addActionListener(e -> addLineSegment());
@@ -39,6 +50,21 @@ public class MiniPaint extends JFrame {
     moveButton.addActionListener(e -> move());
     resizeButton.addActionListener(e -> resize());
     canvas.repaint();
+  }
+
+  public Point createPoint(){
+    String input = JOptionPane.showInputDialog("Enter the x and y position of the shape (x,y)");
+    String[] coordinates = input.split(",");
+    return new Point(Integer.parseInt(coordinates[0].trim()), Integer.parseInt(coordinates[1].trim()));
+  }
+
+  public void addShape(Shape shape) {
+    engine.addShape(shape);
+    SwingUtilities.invokeLater(() -> {
+      ShapesBox.addItem(shape.getName());
+      updateShapeBox();
+    });
+    engine.refresh(canvas.getGraphics());
   }
 
   private void resize() {
@@ -118,11 +144,7 @@ public class MiniPaint extends JFrame {
         canvas.repaint();
         return;
       }
-      String input = JOptionPane.showInputDialog("Enter the x and y position of the shape (x,y)");
-      String[] coordinates = input.split(",");
-      int x = Integer.parseInt(coordinates[0].trim());
-      int y = Integer.parseInt(coordinates[1].trim());
-      selectedShape.setPosition(x, y);
+      selectedShape.setPosition(createPoint());
       canvas.repaint();
       engine.refresh(canvas.getGraphics());
 
@@ -141,18 +163,6 @@ public class MiniPaint extends JFrame {
   }
 
   private void write() {
-    JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
-      @Override
-      public boolean accept(java.io.File f) {
-        return f.getName().toLowerCase().endsWith(".txt") || f.isDirectory();
-      }
-
-      @Override
-      public String getDescription() {
-        return "Text files (*.txt)";
-      }
-    });
     int result = fileChooser.showSaveDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
       String path = fileChooser.getSelectedFile().getAbsolutePath();
@@ -161,18 +171,6 @@ public class MiniPaint extends JFrame {
   }
 
   private void read() {
-    JFileChooser fileChooser = new JFileChooser();
-    fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
-      @Override
-      public boolean accept(java.io.File f) {
-        return f.getName().toLowerCase().endsWith(".txt") || f.isDirectory();
-      }
-
-      @Override
-      public String getDescription() {
-        return "Text files (*.txt)";
-      }
-    });
     int result = fileChooser.showOpenDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
       engine.reset();
@@ -195,27 +193,10 @@ public class MiniPaint extends JFrame {
         JOptionPane.showMessageDialog(this, "Invalid input");
         return;
       }
-      Map<String, Double> properties = new HashMap<>();
       Circle c = new Circle();
-      c.setColor(Color.BLACK);
-      c.setFillColor(transparent);
-
-      String input = JOptionPane.showInputDialog("Enter the x and y position of the circle (x,y)");
-      String[] coordinates = input.split(",");
-      int x = Integer.parseInt(coordinates[0].trim());
-      int y = Integer.parseInt(coordinates[1].trim());
-      c.setPosition(new Point(x, y));
-
-      properties.put("radius", (double) radius);
-      c.setProperties(properties);
-      engine.addShape(c);
-
-
-      SwingUtilities.invokeLater(() -> {
-        ShapesBox.addItem(c.getName());
-        updateShapeBox();
-      });
-      engine.refresh(canvas.getGraphics());
+      c.setPosition(createPoint());
+      c.setProperties(Map.of("radius", (double) radius));
+      addShape(c);
     } catch (NumberFormatException e) {
       JOptionPane.showMessageDialog(this, "Invalid input");
     }
@@ -228,16 +209,9 @@ public class MiniPaint extends JFrame {
       String[] coordinates1 = Linepos1.split(",");
       String[] coordinates2 = Linepos2.split(",");
       LineSegment l = new LineSegment();
-      l.setColor(Color.BLACK);
       l.setPosition(Integer.parseInt(coordinates1[0].trim()), Integer.parseInt(coordinates1[1].trim()));
       l.setProperties(Map.of("x2", Double.parseDouble(coordinates2[0].trim()), "y2", Double.parseDouble(coordinates2[1].trim())));
-      engine.addShape(l);
-
-      SwingUtilities.invokeLater(() -> {
-        ShapesBox.addItem(l.getName());
-        updateShapeBox();
-      });
-      engine.refresh(canvas.getGraphics());
+      addShape(l);
     } catch (NumberFormatException e) {
       JOptionPane.showMessageDialog(this, "Invalid input");
     }
@@ -250,25 +224,10 @@ public class MiniPaint extends JFrame {
         JOptionPane.showMessageDialog(this, "Invalid input");
         return;
       }
-      Map<String, Double> properties = new HashMap<>();
       Square s = new Square();
-      s.setColor(Color.BLACK);
-      s.setFillColor(transparent);
-
-      String input = JOptionPane.showInputDialog("Enter the x and y position of the square (x,y)");
-      String[] coordinates = input.split(",");
-      int x = Integer.parseInt(coordinates[0].trim());
-      int y = Integer.parseInt(coordinates[1].trim());
-      s.setPosition(new Point(x, y));
-
-      properties.put("side", (double) side);
-      s.setProperties(properties);
-      engine.addShape(s);
-      SwingUtilities.invokeLater(() -> {
-        ShapesBox.addItem(s.getName());
-        updateShapeBox();
-      });
-      engine.refresh(canvas.getGraphics());
+      s.setPosition(createPoint());
+      s.setProperties(Map.of("side", (double) side));
+      addShape(s);
     } catch (NumberFormatException e) {
       JOptionPane.showMessageDialog(this, "Invalid input");
     }
@@ -277,36 +236,15 @@ public class MiniPaint extends JFrame {
   private void addRectangle() {
     try {
       int width = Integer.parseInt(JOptionPane.showInputDialog("Enter the width of the rectangle").trim());
-      if (width <= 0) {
-        JOptionPane.showMessageDialog(this, "Invalid input");
-        return;
-      }
       int height = Integer.parseInt(JOptionPane.showInputDialog("Enter the height of the rectangle").trim());
-      if (height <= 0) {
+      if (height <= 0 || width <= 0) {
         JOptionPane.showMessageDialog(this, "Invalid input");
         return;
       }
-      Map<String, Double> properties = new HashMap<>();
       Rectangle r = new Rectangle();
-      r.setColor(Color.BLACK);
-      r.setFillColor(transparent);
-
-      String input = JOptionPane.showInputDialog("Enter the x and y position of the rectangle (x,y)");
-      String[] coordinates = input.split(",");
-      int x = Integer.parseInt(coordinates[0].trim());
-      int y = Integer.parseInt(coordinates[1].trim());
-      r.setPosition(new Point(x, y));
-
-      properties.put("width", (double) width);
-      properties.put("height", (double) height);
-      r.setProperties(properties);
-      engine.addShape(r);
-
-      SwingUtilities.invokeLater(() -> {
-        ShapesBox.addItem(r.getName());
-        updateShapeBox();
-      });
-      engine.refresh(canvas.getGraphics());
+      r.setPosition(createPoint());
+      r.setProperties(Map.of("width", (double) width, "height", (double) height));
+      addShape(r);
     } catch (NumberFormatException e) {
       JOptionPane.showMessageDialog(this, "Invalid input");
     }

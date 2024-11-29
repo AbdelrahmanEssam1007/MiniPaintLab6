@@ -13,7 +13,7 @@ public abstract class AbsShape implements Shape {
   public AbsShape() {
     this.position = new Point(0, 0);
     this.color = Color.BLACK;
-    this.fillColor = Color.WHITE;
+    this.fillColor = new Color(0, 0, 0, 0);
     this.properties = new HashMap<String, Double>();
   }
 
