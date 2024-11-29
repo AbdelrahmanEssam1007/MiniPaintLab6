@@ -4,13 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="added gitignore">
+    <list default="true" id="d9ff499c-3f2f-456b-a056-23bec1e209e9" name="Changes" comment="adjusted behaviour for line resizing and moving">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/DrawingEngineImplementation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/AbsShape.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/backend/AbsShape.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MiniPaintLab6/frontend/MiniPaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/AbsShape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/AbsShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Circle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/DrawingEngineImplementation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/LineSegment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/LineSegment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/Square.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/Square.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/frontend/MiniPaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/frontend/MiniPaint.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,6 +90,26 @@
       <recent name="G:\my stuff\Work\Programming\Java\MiniPaintLab6\src\frontend" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="MiniPaint" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="frontend.MiniPaint" />
+      <module name="MiniPaintLab6" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="frontend.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MiniPaint" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -116,7 +142,10 @@
       <workItem from="1732781663614" duration="2129000" />
       <workItem from="1732788110162" duration="257000" />
       <workItem from="1732788382758" duration="2208000" />
-      <workItem from="1732794591545" duration="2840000" />
+      <workItem from="1732794591545" duration="4665000" />
+      <workItem from="1732813479910" duration="9000" />
+      <workItem from="1732814428785" duration="1741000" />
+      <workItem from="1732878837484" duration="1367000" />
     </task>
     <task id="LOCAL-00001" summary="Added Save and Load methods and input validations">
       <option name="closed" value="true" />
@@ -174,7 +203,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732789817233</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added loading for transparent objects">
+      <option name="closed" value="true" />
+      <created>1732802859986</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1732802859986</updated>
+    </task>
+    <task id="LOCAL-00009" summary="adjusted behaviour for line resizing and moving">
+      <option name="closed" value="true" />
+      <created>1732815624642</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1732815624642</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,6 +256,8 @@
     <MESSAGE value="change line behaviour and fixed some bugs with loading files" />
     <MESSAGE value="adjusted helper function behaviour" />
     <MESSAGE value="added gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="added gitignore" />
+    <MESSAGE value="added loading for transparent objects" />
+    <MESSAGE value="adjusted behaviour for line resizing and moving" />
+    <option name="LAST_COMMIT_MESSAGE" value="adjusted behaviour for line resizing and moving" />
   </component>
 </project>
