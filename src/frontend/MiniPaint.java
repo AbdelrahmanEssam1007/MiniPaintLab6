@@ -297,9 +297,7 @@ public class MiniPaint extends JFrame {
       ShapesBox.removeItemAt(index);
       canvas.repaint();
       engine.refresh(canvas.getGraphics());
-      SwingUtilities.invokeLater(() -> {
-        updateShapeBox();
-      });
+      SwingUtilities.invokeLater(this::updateShapeBox);
     } catch (ArrayIndexOutOfBoundsException e) {
       JOptionPane.showMessageDialog(this, "No shape selected");
     }

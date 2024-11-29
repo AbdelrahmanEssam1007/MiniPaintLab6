@@ -21,8 +21,6 @@ public interface Shape {
   // redraw the shape on the canvas
   public void draw(Graphics canvas);
 
-  public String stringRep();
-
   public void setName(String name);
 
   public String getName();

@@ -16,9 +16,5 @@ public class Square extends AbsShape {
     canvas.drawRect(getPosition().x, getPosition().y, getProperties().get("side").intValue(), getProperties().get("side").intValue());
   }
 
-  @Override
-  public String stringRep() {
-    return "Square," + getProperties().get("side") + "," + getPosition().x + "," + getPosition().y + "," + getColor().getRGB() + "," + getFillColor().getRGB();
-  }
 }
 

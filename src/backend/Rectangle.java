@@ -16,9 +16,4 @@ public class Rectangle extends AbsShape {
     canvas.setColor(getColor());
     canvas.drawRect(getPosition().x, getPosition().y, getProperties().get("width").intValue(), getProperties().get("height").intValue());
   }
-
-  @Override
-  public String stringRep() {
-    return "Rectangle," + getProperties().get("width") + "," + getProperties().get("height") + "," + getPosition().x + "," + getPosition().y + "," + getColor().getRGB() + "," + getFillColor().getRGB();
-  }
 }

@@ -36,22 +36,25 @@ public class DrawingEngineImplementation implements DrawingEngine {
   }
   @Override
   public void addShape (Shape shape) {
-    if (shape instanceof Circle) {
-      DrawingEngineImplementation.CircleNum++;
-      shape.setName("Circle " + DrawingEngineImplementation.CircleNum);
-    }
-    else if (shape instanceof Rectangle) {
-      DrawingEngineImplementation.RectNum++;
-      shape.setName("Rectangle " + DrawingEngineImplementation.RectNum);
-    }
-    else if (shape instanceof Square) {
-      DrawingEngineImplementation.SquareNum++;
+    switch (shape) {
+      case Circle _ -> {
+        DrawingEngineImplementation.CircleNum++;
+        shape.setName("Circle " + DrawingEngineImplementation.CircleNum);
+      }
+      case Rectangle _ -> {
+        DrawingEngineImplementation.RectNum++;
+        shape.setName("Rectangle " + DrawingEngineImplementation.RectNum);
+      }
+      case Square _ -> {
+        DrawingEngineImplementation.SquareNum++;
 
-      shape.setName("Square " + DrawingEngineImplementation.SquareNum);
-    }
-    else {
-      DrawingEngineImplementation.LineSegNum++;
-      shape.setName("Line " + DrawingEngineImplementation.LineSegNum);
+        shape.setName("Square " + DrawingEngineImplementation.SquareNum);
+      }
+      case null, default -> {
+        DrawingEngineImplementation.LineSegNum++;
+        assert shape != null;
+        shape.setName("Line " + DrawingEngineImplementation.LineSegNum);
+      }
     }
     this.shapes.add(shape);
   }
@@ -72,7 +75,7 @@ public class DrawingEngineImplementation implements DrawingEngine {
       }
       fileWriter.close();
     }
-    catch (IOException e) {
+    catch (IOException _) {
 
     }
   }
@@ -103,7 +106,7 @@ public class DrawingEngineImplementation implements DrawingEngine {
       }
       sc.close();
     }
-    catch (FileNotFoundException e) {
+    catch (FileNotFoundException _) {
 
     }
   }
