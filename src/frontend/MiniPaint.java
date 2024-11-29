@@ -142,6 +142,17 @@ public class MiniPaint extends JFrame {
 
   private void write() {
     JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+      @Override
+      public boolean accept(java.io.File f) {
+        return f.getName().toLowerCase().endsWith(".txt") || f.isDirectory();
+      }
+
+      @Override
+      public String getDescription() {
+        return "Text files (*.txt)";
+      }
+    });
     int result = fileChooser.showSaveDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
       String path = fileChooser.getSelectedFile().getAbsolutePath();
@@ -151,6 +162,17 @@ public class MiniPaint extends JFrame {
 
   private void read() {
     JFileChooser fileChooser = new JFileChooser();
+    fileChooser.setFileFilter(new javax.swing.filechooser.FileFilter() {
+      @Override
+      public boolean accept(java.io.File f) {
+        return f.getName().toLowerCase().endsWith(".txt") || f.isDirectory();
+      }
+
+      @Override
+      public String getDescription() {
+        return "Text files (*.txt)";
+      }
+    });
     int result = fileChooser.showOpenDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
       engine.reset();
